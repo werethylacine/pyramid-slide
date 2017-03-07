@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>
+    Pyramid Slide
+  </title>
+</head>
+
+<body>
+  <div class="title">
+    <h2>Pyramid Slide</h2>
+  </div>
+  <div class="inputs">
+    <div class="symbol-input">
+      <label>Brick Symbol:
+        <select class="symbol-needed">
+          <option value="#">#</option>
+          <option value="$">$</option>
+          <option value="@">@</option>
+          <option value="X">X</option>
+        </select>
+      </label>
+    </div>
+    <div class="height-input">
+      <label>How high?
+        <input class="slider" type="range" min="0" max="10"></input>
+        <span class="slider-value">8 (placeholder)</span>
+      </label>
+    </div>
+  </div>
+  <div id="pyramid"></div>
+
+  <script src="mario.js"></script>
+</body>
+
+</html>
