@@ -9,6 +9,7 @@ body {
   background: linear-gradient(lightcyan, cyan);
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .inputs {
@@ -33,6 +34,8 @@ body {
   text-align: center;
   font-family: 'Megrim', cursive;
   font-size: 2em;
+  position: relative;
+  z-index: 11;
 }
 
 
@@ -82,4 +85,21 @@ body {
   top: 45%;
   left: 60%;
   z-index: 7;
+}
+
+.sun {
+  position: absolute;
+  z-index: 4;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: lightyellow;
+  top: 100%;
+  left: (50% - 50px);
+  animation: orbit 20s linear infinite;
+}
+
+@keyframes orbit {
+  from { 	transform: rotate(0deg) translateX(98vh) rotate(0deg); }
+  to   {  transform: rotate(360deg) translateX(98vh) rotate(-360deg); }
 }
