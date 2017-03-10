@@ -11,8 +11,10 @@ function determineHeightAndThenDrawPyramid() {
     console.log("someone invoked the determineHeightAndThenDrawPyramid function!");
 
     var heightStr = document.querySelector('.slider').value;
+    var heightInfo = document.querySelector('.slider-value');
     // here we convert the string to an int
     height = parseInt(heightStr);
+    heightInfo.innerText = height;
     if (height <= 200){
       drawPyramid(height);
     }
@@ -22,7 +24,7 @@ function determineHeightAndThenDrawPyramid() {
 }
 
 // hook up the button's click event to our determineHeightAndThenDrawPyramid function
-document.querySelector('.symbol-needed').onchange= function() {
+document.querySelector('.slider').oninput = function() {
   determineHeightAndThenDrawPyramid();
 }
 
@@ -38,6 +40,9 @@ document.querySelector('.symbol-needed').onchange= function() {
      console.log(document.getElementById("pyramid"));
      document.getElementById("pyramid").innerText = '';
 
+     //get the needed brick symbol
+     var brick = document.querySelector(".symbol-needed").value;
+
      // for each row....
      for (var row = 0; row < height; row++) {
 
@@ -48,18 +53,15 @@ document.querySelector('.symbol-needed').onchange= function() {
          // build up a string for this row
          var rowStr = "";
          for (var i = 0; i < numSpaces; i++) {
-             rowStr += ".";
+             rowStr += "&nbsp";
          }
          for (var i = 0; i < numBricks; i++) {
-             rowStr += "#";
+             rowStr += brick;
          }
 
-        // create a text element with the string of characters
-        textElem = document.createTextNode(rowStr);
-
         // create a <p> element with the text inside
-        rowElem = document.createElement("p");
-        rowElem.appendChild(textElem);
+        rowElem = document.createElement("div");
+        rowElem.innerHTML = rowStr;
 
         // insert the paragraph as a child of the container <div>
         document.getElementById("pyramid").appendChild(rowElem);
